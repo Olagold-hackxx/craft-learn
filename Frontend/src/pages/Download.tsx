@@ -1,6 +1,36 @@
 import Button from "../components/Button";
+import { useEthersSigner } from "../hooks/useEthersSigner";
+import { useStoreIPFS } from "../utils/store";
+import IPFS from "../hooks/useIPFS";
+import { getCraftLearnCredentialContract } from "../constants/contract";
+import { useAccount } from "wagmi";
 
 const CertificateCard = () => {
+  const signer = useEthersSigner({ chainId: 656476 });
+  const { ipfsUrl } = useStoreIPFS();
+  const { fetchFromIPFS } = IPFS();
+  const { address } = useAccount();
+
+  const handleMint = async () => {
+    const fetchedDetail = await fetchFromIPFS(ipfsUrl);
+    const userDetail = JSON.parse(fetchedDetail);
+
+    const courseName = "Bead Making Mastery Course";
+    const learnerID = `${userDetail.username}.edu`;
+    const tokenURI = "https://aquamarine-famous-penguin-727.mypinata.cloud/ipfs/QmUr6JWDGMkwk9pnb9bQvWrG5wfzp4cLDokPfzfeC5YGLK";
+    const learnerName = userDetail.username;
+
+    try {
+      const contract = signer ? getCraftLearnCredentialContract(signer) : undefined;
+      if (contract) {
+        console.log("Minting certificate...", address, courseName, learnerID, tokenURI, learnerName);
+        await contract.mintCredential(address, courseName, learnerID, tokenURI, learnerName);
+      }
+    } catch (error) {
+      console.error("Error minting certificate: ", error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center h-[80vh] bg-gray-100">
       <div className="bg-[#F9F9F7] shadow-lg rounded-xl p-8 text-center w-[30vw]">
@@ -26,7 +56,7 @@ const CertificateCard = () => {
             <Button color={"bg-white"} text={"Download Certificate"} />
             </div>
             <div>
-            <Button text={"Mint Certificate"} />
+            <Button onClick={handleMint} text={"Mint Certificate"} />
             </div>
         </div>
       </div>
