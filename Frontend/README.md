@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# CraftLearn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CraftLearn is a decentralized learning platform that teaches various crafts and provides certification upon completion. Built using **React** and **Tailwind CSS**, it integrates with **EduChain** for decentralized storage and **Solidity smart contracts** for issuing verifiable certificates on the blockchain.
 
-Currently, two official plugins are available:
+## Features
+- 🎨 **Craft Learning Modules** – Courses on crafts like bead making, knitting, leather crafting, and more.
+- 🏆 **Certification** – Mint blockchain-based certificates upon successful assessment completion.
+- 🔗 **Decentralized Storage** – Course materials and certificates are stored on EduChain.
+- 📜 **Smart Contract Integration** – Solidity-based contracts ensure certificate authenticity.
+- 🌐 **Seamless UI** – Built with React and styled using Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend**: React, Tailwind CSS
+- **Blockchain**: Solidity, EduChain, Open Campus Id
+- **Storage**: EduChain decentralized storage
 
-## Expanding the ESLint configuration
+## Setup Instructions
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/olagold-hackxx/craft-learn.git
+   cd craft-learn
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+## Deployment
+CraftLearn is deployed on **EduChain** for secure certificate verification. The frontend is hosted on a decentralized platform like **IPFS** or **Fleek**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Contribute
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m "Added new feature"`).
+4. Push the branch (`git push origin feature-name`).
+5. Open a pull request.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## License
+MIT License. Feel free to use and improve CraftLearn!
