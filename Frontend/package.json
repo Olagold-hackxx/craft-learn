@@ -13,6 +13,7 @@
     "@reown/appkit": "^1.6.5",
     "@reown/appkit-adapter-wagmi": "^1.6.5",
     "@tailwindcss/vite": "^4.0.17",
+    "axios": "^1.8.4",
     "ethers": "^6.13.5",
     "framer-motion": "^12.6.2",
     "js-cookie": "^3.0.5",

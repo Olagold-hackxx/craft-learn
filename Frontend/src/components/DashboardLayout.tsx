@@ -5,13 +5,15 @@ import Header from "./Dashboard/Header";
 const DashboardLayout = () => {
   return (
     <div className="">
-      <Header className=" w-full" />
+      <div>
+        <Header className=" w-full" />
+      </div>
       <div className="flex bg-[#F9F9F7]">
         <Sidebar1 className="flex" />
-      <div className="h-full w-full">
-        <Outlet />
+        <div className="h-full w-full">
+          <Outlet />
+        </div>
       </div>
-    </div>
     </div>
   );
 };

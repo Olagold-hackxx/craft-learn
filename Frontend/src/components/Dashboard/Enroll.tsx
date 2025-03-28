@@ -89,7 +89,7 @@ const Enroll = ({ onClose }: { onClose: () => void }) => {
             to={`${
               selectedPath === "beginner"
                 ? "/dashboard/courses"
-                : "/dashboard/assessment"
+                : "/dashboard/assessments"
             }`}
           >
             <Button text={"Let's go"} />

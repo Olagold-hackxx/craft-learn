@@ -23,12 +23,13 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<HomePage />} />
-              <Route path="assessment" element={<Assessment/>} />
-              <Route path="completed-assestment" element={<CertificateCard/>} />
-              <Route path="certificates" element={<Certificate/>} />
-              <Route path="courses" element={<CoursesPage/>} />
-
-
+              <Route path="assessments" element={<Assessment />} />
+              <Route
+                path="completed-assessment"
+                element={<CertificateCard />}
+              />
+              <Route path="certificates" element={<Certificate />} />
+              <Route path="courses" element={<CoursesPage />} />
             </Route>
           </Routes>
         </Router>

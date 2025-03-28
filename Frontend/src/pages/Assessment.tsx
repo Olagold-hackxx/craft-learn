@@ -52,7 +52,7 @@ const Assessment = () => {
 
           <div className="flex  gap-x-4 mt-6">
             <Button text={"Back"} color={"bg-white"} />
-            <Link to="/dashboard/completed-assestment">
+            <Link to="/dashboard/completed-assessment">
             <Button text={"Finish"} />
             </Link>
           </div>
