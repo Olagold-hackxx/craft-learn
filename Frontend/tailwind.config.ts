@@ -11,31 +11,21 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        border: "#FCFBF726",
-        fontPrimary: "#F9F1E2",
-        fontSec: "#D8D6CF",
+        fontPrimary: "#2D2D2D",
+        fontSec: "#575757",
         yellow: "#FFD700",
         black: "#1A1203",
+        blackyel:
+          "linear-gradient(93.09deg, #333333 25.41%, #FFD700 100.15%)"
       },
-      backgroundImage: {
-        header:
-          "linear-gradient(90deg, rgba(85, 81, 57, 0.0847) 0%, rgba(187, 178, 125, 0.0462) 100%)",
-        second:
-          "linear-gradient(180deg, rgba(252, 251, 240, 0.015) 0%, rgba(224, 224, 222, 0.025) 100%)",
-        primary:
-          "linear-gradient(180deg, rgba(94, 93, 89, 0.0088) 17.45%, rgba(49, 48, 45, 0.88) 32.17%)",
-        about:
-          "linear-gradient(180deg, rgba(64, 53, 0, 0.0726) 5%, rgba(18, 15, 0, 0.165) 77%)",
-        footer:
-          "linear-gradient(180deg, rgba(26, 22, 0, 0.1675) 0%, rgba(26, 22, 0, 0.268) 100%)",
-        faq: "linear-gradient(180deg, rgba(64, 53, 0, 0.0275) 5%, rgba(18, 15, 0, 0.0625) 77%)",
-        profile:
-          "linear-gradient(180deg, rgba(64, 53, 0, 0.0726) 5%, rgba(18, 15, 0, 0.165) 77%)",
+      backgroundColor: {
+        primary: "#F9F9F7",
+
       },
       fontFamily: {
-        mooli: ["Mooli", "sans-serif"],
-        merriweather: ["Merriweather", "serif"],
-        alata: ["Alata", "sans-serif"],
+        chivo: ["Chivo", "sans-serif"],
+        dmsans: ["DM Sans", "serif"],
+        rajdhani: ["Rajdhani", "serif"]
       },
       keyframes: {
         slideInLeft: {
@@ -51,7 +41,6 @@ export default {
         slideInLeft: "slideInLeft 1s ease-out forwards",
         slideInRight: "slideInRight 1s ease-out forwards",
       },
-      // scrollbarWidth: ["none"],
     },
   },
   plugins: [],

@@ -5,28 +5,23 @@ interface FAQ {
 
 export const Faq: FAQ[] = [
     {
-        question: "What is a Web3 artisan platform?",
-        answer: `A Web3 artisan platform is a decentralized marketplace that connects skilled artisans directly with clients, facilitating secure transactions through blockchain technology
-        and cryptocurrency while promoting creativity and privacy.`
+        question: "Do I need Web3 knowledge to use CraftLearn?",
+        answer: `No! CraftLearn is designed for artisans of all backgrounds. You'll start with a beginner-friendly Web3 crash course before learning your craft.`
     },
     {
-        question: "How do payments work?",
-        answer: `A Web3 artisan platform is a decentralized marketplace that connects skilled artisans directly with clients, facilitating secure transactions through blockchain technology
-        and cryptocurrency while promoting creativity and privacy 1.`
+        question: " Do I need collateral?",
+        answer: `No! CraftLearn is designed for artisans of all backgrounds. You'll start with a beginner-friendly Web3 crash course before learning your craft. 1.`
     },
     {
-        question: "What types of artisans can I find?",
-        answer: `A Web3 artisan platform is a decentralized marketplace that connects skilled artisans directly with clients, facilitating secure transactions through blockchain technology
-        and cryptocurrency while promoting creativity and privacy5 .`
+        question: "How do I get my Web3 certificate?",
+        answer: `No! CraftLearn is designed for artisans of all backgrounds. You'll start with a beginner-friendly Web3 crash course before learning your craft.5 .`
     },
     {
-        question: "How do I report an issue or concern?",
-        answer: `A Web3 artisan platform is a decentralized marketplace that connects skilled artisans directly with clients, facilitating secure transactions through blockchain technology
-        and cryptocurrency while promoting creativity and privacy 3.`
+        question: "What crafts can I learn on CraftLearn?",
+        answer: `No! CraftLearn is designed for artisans of all backgrounds. You'll start with a beginner-friendly Web3 crash course before learning your craft. 3.`
     },
     {
-        question: "Can I use the platform if I’m new to cryptocurrency?",
-        answer: `A Web3 artisan platform is a decentralized marketplace that connects skilled artisans directly with clients, facilitating secure transactions through blockchain technology
-        and cryptocurrency while promoting creativity and privacy 4.`
+        question: "How does Web3 help me as an artisan?",
+        answer: `No! CraftLearn is designed for artisans of all backgrounds. You'll start with a beginner-friendly Web3 crash course before learning your craft. 4.`
     },
 ]
