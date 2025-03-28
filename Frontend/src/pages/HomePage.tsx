@@ -35,6 +35,7 @@ const courseCategoriesList = [
 ];
 
 export default function HomePage() {
+
   return (
     <div className="bg-[#EAEAE8A8]">
       <div className="flex flex-1 flex-col gap-8 bg-gray-200_a8 px-5">
@@ -103,7 +104,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex gap-5 p-4">
-          <div className="rounded-xl flex flex-1 flex-col items-start gap-4 bg-[#FEFDFA] relative px-6 py-4  sm:px-4">
+          <div className="rounded-xl flex flex-1 flex-col items-start gap-4 bg-[#FEFDFA] px-6 py-4  sm:px-4">
             <Heading
               size="heading2xl"
               as="h3"

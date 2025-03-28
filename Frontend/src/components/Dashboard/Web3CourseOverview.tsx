@@ -1,6 +1,7 @@
 import { Text, Heading } from "./";
 import Button from "../Button";
-import React from "react";
+import React, {useState} from "react";
+import Enroll from "./Enroll";
 
 interface Props {
   className?: string;
@@ -23,6 +24,9 @@ export default function Web3CourseOverview({
   textColor,
   ...props
 }: Props) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div
       {...props}
@@ -58,9 +62,12 @@ export default function Web3CourseOverview({
             text={enrollButtonText}
             color={button}
             textColor={textColor}
+            onClick={() => setIsModalOpen(true)} 
           />
         </div>
       </div>
+      {isModalOpen && <Enroll onClose={() => setIsModalOpen(false)} />}
+
     </div>
   );
 }

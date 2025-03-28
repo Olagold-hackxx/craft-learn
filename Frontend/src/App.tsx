@@ -10,6 +10,7 @@ import Assessment from "./pages/Assessment";
 import DashboardLayout from "./components/DashboardLayout";
 import CertificateCard from "./pages/Download";
 import Certificate from "./pages/Certificates";
+import CoursesPage from "./pages/Courses";
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<HomePage />} />
-              <Route path="courses" element={<Assessment/>} />
+              <Route path="assessment" element={<Assessment/>} />
               <Route path="completed-assestment" element={<CertificateCard/>} />
               <Route path="certificates" element={<Certificate/>} />
+              <Route path="courses" element={<CoursesPage/>} />
 
 
             </Route>

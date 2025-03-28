@@ -20,7 +20,7 @@ export default function OverviewRow({
       className={`${props.className} flex justify-center items-center self-stretch py-2.5 flex-1`}
     >
       <div className="flex flex-1 gap-4">
-        <Img src="images/img_upload.svg" alt="Image" className="h-[20px]" />
+        <Img src="/video.png" alt="Image" className="h-[20px]" />
         <Text size="textlg" as="p" className="text-[15px] font-normal">
           {versionText}
         </Text>

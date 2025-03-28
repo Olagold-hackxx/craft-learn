@@ -57,7 +57,9 @@ export default function Sidebar1({ ...props }: Props) {
               My Courses
             </MenuItem>
           </NavLink>
-          <MenuItem icon={<BookOpen color="#575757" />}>Tracks</MenuItem>
+          <NavLink to={"/dashboard/assessment"}>
+            <MenuItem icon={<BookOpen color="#575757" />}>Assessment</MenuItem>
+          </NavLink>
           <NavLink to={"/dashboard/certificates"}>
             <MenuItem icon={<Trophy color="#575757" />}>Certificates</MenuItem>{" "}
           </NavLink>
