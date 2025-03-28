@@ -1,5 +1,5 @@
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Home,
   BookOpen,
@@ -10,17 +10,24 @@ import {
   GraduationCap,
   LogOut,
 } from "lucide-react";
+
 interface Props {
   className?: string;
 }
 
 export default function Sidebar1({ ...props }: Props) {
+  const navigate = useNavigate();
+
+  // Handler for menu item clicks
+  const handleMenuItemClick = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <Sidebar
       {...props}
       width="306px !important"
       collapsedWidth="80px !important"
-      //   collapsed={collapsed}
       className={`${props.className} flex-col h-screen pt-[42px] top-0 md:pt-2 sm:pt-4 bg-gray-50 !sticky overflow-auto`}
     >
       <Menu
@@ -46,28 +53,48 @@ export default function Sidebar1({ ...props }: Props) {
         className="mt-[76px] flex w-full flex-col self-stretch pl-6 sm:pl-5"
       >
         <div className="flex flex-col gap-4">
-          <NavLink to={"/dashboard"}>
-            <MenuItem icon={<Home color="#575757" />}>Home</MenuItem>
-          </NavLink>
-          <NavLink to={"/dashboard/courses"}>
-            <MenuItem
-              icon={<GraduationCap color="#575757" />}
-              href="/dashboard/courses"
-            >
-              My Courses
-            </MenuItem>
-          </NavLink>
-          <MenuItem icon={<BookOpen color="#575757" />}>Tracks</MenuItem>
-          <NavLink to={"/dashboard/certificates"}>
-            <MenuItem icon={<Trophy color="#575757" />}>Certificates</MenuItem>{" "}
-          </NavLink>
+          <MenuItem 
+            icon={<Home color="#575757" />} 
+            onClick={() => handleMenuItemClick("/dashboard")}
+          >
+            Home
+          </MenuItem>
+          
+          <MenuItem 
+            icon={<GraduationCap color="#575757" />} 
+            onClick={() => handleMenuItemClick("/dashboard/courses")}
+          >
+            My Courses
+          </MenuItem>
+          
+          <MenuItem icon={<BookOpen color="#575757" />}>
+            Tracks
+          </MenuItem>
+          
+          <MenuItem 
+            icon={<Trophy color="#575757" />} 
+            onClick={() => handleMenuItemClick("/dashboard/certificates")}
+          >
+            Certificates
+          </MenuItem>
 
-          <MenuItem icon={<Award color="#575757" />}>Rewards</MenuItem>
-          <MenuItem icon={<Settings color="#575757" />}>Settings</MenuItem>
+          <MenuItem icon={<Award color="#575757" />}>
+            Rewards
+          </MenuItem>
+          
+          <MenuItem icon={<Settings color="#575757" />}>
+            Settings
+          </MenuItem>
         </div>
+        
         <div className="flex flex-col justify-end h-56 gap-4">
-          <MenuItem icon={<BadgeHelp color="#575757" />}>Support</MenuItem>
-          <MenuItem icon={<LogOut color="#575757" />}>Log Out</MenuItem>
+          <MenuItem icon={<BadgeHelp color="#575757" />}>
+            Support
+          </MenuItem>
+          
+          <MenuItem icon={<LogOut color="#575757" />}>
+            Log Out
+          </MenuItem>
         </div>
       </Menu>
     </Sidebar>

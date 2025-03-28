@@ -4,11 +4,15 @@ import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
 import Button from "../Button";
 import AnimatedDiv from "../AnimatedDiv";
-import { Link } from "react-router-dom";
-import { links } from "../../utils/links";
+import { useNavigate } from "react-router";
+import { useStoreIPFS } from "../../utils/store";
+import IPFS from "../../hooks/useIPFS";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const { ipfsUrl } = useStoreIPFS();
+  const { fetchFromIPFS } = IPFS();
 
   // Menu items array
   const menuItems = [
@@ -18,6 +22,41 @@ const Header = () => {
     { href: "#testimonials", label: "Testimonials" },
     { href: "#FAQS", label: "FAQs" },
   ];
+
+  console.log("IPFS URL: ", ipfsUrl);
+  
+  const handleClick = async () => {
+    const fetchedDetail = await fetchFromIPFS(ipfsUrl);
+    let validUrl = false;
+    
+    try {
+      JSON.parse(fetchedDetail);
+      validUrl = true;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch(error) {
+      validUrl = false;
+    }
+    if (validUrl) {
+      if (JSON.parse(fetchedDetail).username) {
+        navigate("/dashboard");
+      } else {
+        navigate("/signup");
+      }
+    } else {
+      navigate("/signup");
+    }
+    // try {
+    //   console.log("Fetched detail: ", fetchedDetail);
+    //   console.log("Fetched detail username: ", JSON.parse(fetchedDetail).username);
+    //   if (fetchedDetail && JSON.parse(fetchedDetail).username) {
+    //     navigate("/dashboard");
+    //   } else {
+    //     navigate("/signup");
+    //   }
+    // } catch {
+    //   console.log("Error fetching data from IPFS");
+    // }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,9 +79,7 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex">
-          <Link to={links.register}>
-            <Button text="Start Learning" />
-          </Link>
+          <Button onClick={handleClick} text="Start Learning" />
         </div>
 
         <div className="flex lg:hidden">

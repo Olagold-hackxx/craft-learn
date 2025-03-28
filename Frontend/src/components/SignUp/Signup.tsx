@@ -4,13 +4,44 @@ import Button from "../Button";
 import Input from "../Input";
 import { FaCheck } from "react-icons/fa";
 import {useState} from "react"
+import IPFS from "../../hooks/useIPFS";
+import { useNavigate } from "react-router";
+import { useAccount } from "wagmi";
 
 export default function Register() {
   const [username, setUsername] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [privacyChecked, setPrivacyChecked] = useState<boolean>(false);
 
+  const { address } = useAccount();
+  const navigate = useNavigate(); 
+  const { uploadToIPFS } = IPFS();
 
+  const createAccount = async (e: { preventDefault: () => void }) => {
+    if (!address) {
+      alert("Please connect your wallet");
+      return;
+    }
+
+    e.preventDefault();
+    if (!username || !email) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const data = {
+        username,
+        email,
+      };
+      const url = await uploadToIPFS(JSON.stringify(data));
+      console.log("IPFS Url: ", url);
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
  
   return (<div className="bg-primary grid place-items-center py-4">
@@ -49,8 +80,8 @@ export default function Register() {
               <label className="">
                 Email
                 <Input
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="tolu@craftlearn.com"
                   type="text"
                 />
@@ -83,7 +114,7 @@ export default function Register() {
             </div>
 
             <div className="justify-self-center py-2 md:px-12 gap-y-2 grid font-merriweather md:col-span-2">
-              <Button text={"Create Account"} />
+              <Button onClick={createAccount} text={"Create Account"} />
             </div>
           </form>
         </div>
