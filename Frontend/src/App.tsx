@@ -11,10 +11,19 @@ import DashboardLayout from "./components/DashboardLayout";
 import CertificateCard from "./pages/Download";
 import Certificate from "./pages/Certificates";
 import CoursesPage from "./pages/Courses";
+import { OCConnect } from '@opencampus/ocid-connect-js';
 
+const domain = import.meta.env.VITE_DOMAIN ?? "http://localhost:3000";
+
+const opts = {
+    clientId: '',
+    redirectUri: `${domain}/dashboard`,
+    referralCode: 'PARTNER6'
+}
 function App() {
   return (
     <div>
+      <OCConnect opts={opts} sandboxMode={true}>
       <ContextProvider>
         <ToastContainer />
         <Router>
@@ -34,6 +43,7 @@ function App() {
           </Routes>
         </Router>
       </ContextProvider>
+      </OCConnect>
     </div>
   );
 }
