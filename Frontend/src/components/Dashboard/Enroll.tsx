@@ -2,10 +2,23 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { useOCAuth } from "@opencampus/ocid-connect-js";
 
 const Enroll = ({ onClose }: { onClose: () => void }) => {
   const [selectedSkill, setSelectedSkill] = useState("Bead Making");
   const [selectedPath, setSelectedPath] = useState("");
+  const { isInitialized, authState, ocAuth } = useOCAuth();
+
+  const handleLogin = async () => {
+    try {
+      await ocAuth.signInWithRedirect({ state: "opencampus" });
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
+
+    // Add a loading state
+    if (isInitialized) console.log(authState.isAuthenticated)
 
   const skills = [
     "Baking",
@@ -85,15 +98,19 @@ const Enroll = ({ onClose }: { onClose: () => void }) => {
           </div>
         </div>
         <div className="flex justify-end">
-          <Link
-            to={`${
-              selectedPath === "beginner"
-                ? "/dashboard/courses"
-                : "/dashboard/assessments"
-            }`}
-          >
-            <Button text={"Let's go"} />
-          </Link>
+          {authState.isAuthenticated ? (
+            <Link
+              to={`${
+                selectedPath === "beginner"
+                  ? "/dashboard/courses"
+                  : "/dashboard/assessments"
+              }`}
+            >
+              <Button text={"Let's go"} />
+            </Link>
+          ) : (
+            <Button text={"Let's go"} onClick={handleLogin} />
+          )}
         </div>
       </div>
     </div>

@@ -23,8 +23,8 @@ export const useIPFS = () => {
 
       const pinata_api = import.meta.env.VITE_PINATA_API_KEY;
       const pinata_secret = import.meta.env.VITE_PINATA_SECRET_API_KEY;
-      console.log("Pinata API Key: ", pinata_api);
-        console.log("Pinata Secret API Key: ", pinata_secret);
+      // console.log("Pinata API Key: ", pinata_api);
+      //   console.log("Pinata Secret API Key: ", pinata_secret);
 
       const response = await axios.post(
         "https://api.pinata.cloud/pinning/pinFileToIPFS",
